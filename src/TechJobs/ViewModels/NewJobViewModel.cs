@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using TechJobs.Data;
@@ -12,8 +12,20 @@ namespace TechJobs.ViewModels
         public string Name { get; set; }
 
         [Required]
-        [Display(Name = "Employer")]
+        [Display(Name = "Employers")]
         public int EmployerID { get; set; }
+
+        [Required]
+        [Display(Name = "Locations")]
+        public int LocationID { get; set; }
+
+        [Required]
+        [Display(Name = "CoreCompetencies")]
+        public int CoreCompetencyID { get; set; }
+
+        [Required]
+        [Display(Name = "PositionTypes")]
+        public int PositionTypeID { get; set; }
 
         // TODO #3 - Included other fields needed to create a job,
         // with correct validation attributes and display names.
@@ -31,6 +43,30 @@ namespace TechJobs.ViewModels
             foreach (Employer field in jobData.Employers.ToList())
             {
                 Employers.Add(new SelectListItem {
+                    Value = field.ID.ToString(),
+                    Text = field.Value
+                });
+            }
+            foreach (Location field in jobData.Locations.ToList())
+            {
+                Locations.Add(new SelectListItem
+                {
+                    Value = field.ID.ToString(),
+                    Text = field.Value
+                });
+            }
+            foreach (CoreCompetency field in jobData.CoreCompetencies.ToList())
+            {
+                CoreCompetencies.Add(new SelectListItem
+                {
+                    Value = field.ID.ToString(),
+                    Text = field.Value
+                });
+            }
+            foreach (PositionType field in jobData.PositionTypes.ToList())
+            {
+                PositionTypes.Add(new SelectListItem
+                {
                     Value = field.ID.ToString(),
                     Text = field.Value
                 });
