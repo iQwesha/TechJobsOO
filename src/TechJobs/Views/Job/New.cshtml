@@ -1,4 +1,4 @@
-﻿@model TechJobs.ViewModels.NewJobViewModel
+@model TechJobs.ViewModels.NewJobViewModel
 
 <div asp-validation-summary="All"></div>
 
@@ -10,6 +10,18 @@
     <div class="form-group">
         <label asp-for="EmployerID"></label>
         <select asp-for="EmployerID" asp-items="Model.Employers"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="PositionTypes"></label>
+        <select asp-for="PositionTypeID" asp-items="Model.PositionTypes"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="CoreCompetencies"></label>
+        <select asp-for="CoreCompetencyID" asp-items="Model.CoreCompetencies"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Locations"></label>
+        <select asp-for="LocationID" asp-items="Model.Locations"></select>
     </div>
 
     @{ 
